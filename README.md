@@ -22,27 +22,22 @@
 
 ## items テーブル
 
-| Column           | Type       | Options                        |
-| ---------------- | ---------- | ------------------------------ |
-| product          | string     | null: false                    |
-| explanation      | text       | null: false                    |
-| category         | integer    | null: false                    |
-| status           | integer    | null: false                    |
-| delivery_fee     | integer    | null: false                    |
-| prefecture       | integer    | null: false                    |
-| preparation_days | integer    | null: false                    |
-| price            | integer    | null: false                    |
-| user_id          | references | null: false, foreign_key: true |
+| Column              | Type       | Options                        |
+| ------------------- | ---------- | ------------------------------ |
+| product             | string     | null: false                    |
+| explanation         | text       | null: false                    |
+| category_id         | integer    | null: false                    |
+| status_id           | integer    | null: false                    |
+| delivery_fee_id     | integer    | null: false                    |
+| prefecture_id       | integer    | null: false                    |
+| preparation_days_id | integer    | null: false                    |
+| price               | integer    | null: false                    |
+| user                | references | null: false, foreign_key: true |
  
 ### Association
 
 - belongs_to :user
 - has_one :buy
-- belongs_to_active_hash :category
-- belongs_to_active_hash :status
-- belongs_to_active_hash :delivery_fee
-- belongs_to_active_hash :prefectures
-- belongs_to_active_hash :preparation_days
 
 ## buys テーブル
 
@@ -59,18 +54,18 @@
 
 ## buyer テーブル
 
-| Column       | Type       | Options                        |
-| ------------ | ---------- | ------------------------------ |
-| postal       | string     | null: false                    |
-| prefecture   | integer    |                                |
-| city         | string     |                                |
-| address      | string     |                                |
-| building     | string     |                                |
-| phone        | string     |                                |
-| buy          | references | null: false, foreign_key: true |
+| Column        | Type       | Options                        |
+| ------------- | ---------- | ------------------------------ |
+| postal        | string     | null: false                    |
+| prefecture_id | integer    | null: false                    |
+| city          | string     | null: false                    |
+| address       | string     | null: false                    |
+| building      | string     |                                |
+| phone         | string     | null: false                    |
+| buy           | references | null: false, foreign_key: true |
  
 ### Association
 
 - belongs_to :buy
-- belongs_to_active_hash :prefecture
+
 
