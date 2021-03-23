@@ -2,16 +2,16 @@
 
 ## users テーブル
 
-| Column             | Type    | Options     |
-| ------------------ | ------- | ----------- |
-| email              | string  | null: false |
-| encrypted_password | string  | null: false |
-| nickname           | string  | null: false |
-| family_name        | string  | null: false |
-| first_name         | string  | null: false |
-| read_family        | string  | null: false |
-| read_first         | string  | null: false |
-| birth              | date    | null: false |
+| Column             | Type    | Options                   |
+| ------------------ | ------- | ------------------------- |
+| email              | string  | null: false, unique: true |
+| encrypted_password | string  | null: false               |
+| nickname           | string  | null: false               |
+| family_name        | string  | null: false               |
+| first_name         | string  | null: false               |
+| read_family        | string  | null: false               |
+| read_first         | string  | null: false               |
+| birth              | date    | null: false               |
 
 
 
@@ -30,7 +30,7 @@
 | status_id           | integer    | null: false                    |
 | delivery_fee_id     | integer    | null: false                    |
 | prefecture_id       | integer    | null: false                    |
-| preparation_days_id | integer    | null: false                    |
+| preparation_day_id  | integer    | null: false                    |
 | price               | integer    | null: false                    |
 | user                | references | null: false, foreign_key: true |
  
