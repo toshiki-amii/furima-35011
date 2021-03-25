@@ -18,5 +18,4 @@ class User < ApplicationRecord
     validates :read_family
     validates :read_first
   end
-
 end

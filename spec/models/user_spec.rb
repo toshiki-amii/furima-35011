@@ -27,9 +27,9 @@ RSpec.describe User, type: :model do
       expect(@user.errors.full_messages).to include("Family name can't be blank")
     end
     it 'fmaily_nameがローマ字では登録できない' do
-      @user.family_name = "tanaka"
+      @user.family_name = 'tanaka'
       @user.valid?
-      expect(@user.errors.full_messages).to include("Family name is invalid")
+      expect(@user.errors.full_messages).to include('Family name is invalid')
     end
     it 'first_nameが空では登録できない' do
       @user.first_name = ''
@@ -39,7 +39,7 @@ RSpec.describe User, type: :model do
     it 'first_nameがローマ字では登録できない' do
       @user.first_name = 'tarou'
       @user.valid?
-      expect(@user.errors.full_messages).to include("First name is invalid")
+      expect(@user.errors.full_messages).to include('First name is invalid')
     end
     it 'read_familyが空では登録できない' do
       @user.read_family = ''
@@ -49,7 +49,7 @@ RSpec.describe User, type: :model do
     it 'read_familyが漢字では登録できない' do
       @user.read_family = '田中'
       @user.valid?
-      expect(@user.errors.full_messages).to include("Read family is invalid")
+      expect(@user.errors.full_messages).to include('Read family is invalid')
     end
     it 'read_firstが空では登録できない' do
       @user.read_first = ''
@@ -59,7 +59,7 @@ RSpec.describe User, type: :model do
     it 'read_firstがひらがなでは登録できない' do
       @user.read_first = 'たろう'
       @user.valid?
-      expect(@user.errors.full_messages).to include("Read first is invalid")
+      expect(@user.errors.full_messages).to include('Read first is invalid')
     end
     it 'birthが空では登録できない' do
       @user.birth = ''
@@ -68,4 +68,3 @@ RSpec.describe User, type: :model do
     end
   end
 end
-
