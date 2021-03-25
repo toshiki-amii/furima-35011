@@ -16,7 +16,7 @@ class User < ApplicationRecord
   # 読み仮名にカタカナとーを設定
   with_options presence: true, format: { with: /\A[ァ-ヶー]+\z/ } do
     validates :read_family
-    validates :read_name
+    validates :read_first
   end
 
 end
