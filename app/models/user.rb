@@ -18,4 +18,6 @@ class User < ApplicationRecord
     validates :read_family
     validates :read_first
   end
+  
+  validates_format_of :password, with: /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i
 end
