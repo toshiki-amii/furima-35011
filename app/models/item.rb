@@ -1,5 +1,7 @@
 class Item < ApplicationRecord
-  extend ActiveHash::Associations::ActiveRecordExtensions
+  include ActiveModel::Model
+  attr_accessor :category_id, :status_id, :delivery_fee_id, :prefecture_id, :preparation_day_id
+
   belongs_to :category
   belongs_to :status
   belongs_to :delivery_fee
