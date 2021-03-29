@@ -1,15 +1,12 @@
 class Item < ApplicationRecord
-  include ActiveModel::Model
-  attr_accessor :category_id, :status_id, :delivery_fee_id, :prefecture_id, :preparation_day_id
-
-  belongs_to :category
-  belongs_to :status
-  belongs_to :delivery_fee
-  belongs_to :prefecture
-  belongs_to :preparation_day
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to_active_hash :category
+  belongs_to_active_hash :status
+  belongs_to_active_hash :delivery_fee
+  belongs_to_active_hash :prefecture
+  belongs_to_active_hash :preparation_day
 
   belongs_to :user
-  # has_one :buy
 
   has_one_attached :image
 
