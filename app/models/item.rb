@@ -14,9 +14,7 @@ class Item < ApplicationRecord
     validates :product
     validates :explanation
     validates :image
-   end
-
-  
+  end
 
   # ---を排除
   with_options numericality: { other_than: 1 } do
@@ -25,8 +23,8 @@ class Item < ApplicationRecord
     validates :delivery_fee_id
     validates :prefecture_id
     validates :preparation_day_id
-   end
-  
+  end
+
   # 数字を数字のみにし、範囲を指定
   validates :price, presence: true,
                     numericality: { only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999 }
