@@ -1,4 +1,6 @@
 class Item < ApplicationRecord
+  default_scope -> { order(created_at: :desc) }
+
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :category
   belongs_to_active_hash :status
