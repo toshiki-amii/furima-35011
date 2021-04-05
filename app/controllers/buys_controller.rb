@@ -1,13 +1,14 @@
 class BuysController < ApplicationController
 
   def index
+    @item = Item.find(params[:item_id])
     @buy_buyer = BuyBuyer.new
   end
 
   def create
     @buy_buyer = BuyBuyer.new(buyer_params)
-    if @donation_address.valid?
-      @donation_address.save
+    if @buy_buyer.valid?
+      @buy_buyer.save
       redirect_to root_path
     else
       render :new
