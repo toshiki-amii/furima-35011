@@ -8,7 +8,7 @@ class BuyBuyer
     validates :address
     validates :user_id
     validates :item_id
-    validates :phone, numericality: { only_integer: true }
+    validates :phone, numericality: { only_integer: true }, format: {with: /\A\d{10,11}\z/}
   end
 
   validates :token, presence: { message: 'カード情報を正しく入力してください。' }
