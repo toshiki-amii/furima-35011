@@ -65,8 +65,18 @@ RSpec.describe BuyBuyer, type: :model do
         @buy_buyer.valid?
         expect(@buy_buyer.errors.full_messages).to include('Phone is not a number')
       end
-      it 'phoneが10文字11文字でないと登録できない' do
+      it 'phoneが10文字未満だと登録できない' do
         @buy_buyer.phone = '111111111'
+        @buy_buyer.valid?
+        expect(@buy_buyer.errors.full_messages).to include('Phone is invalid')
+      end
+      it 'phoneが12文字以上だと登録できない' do
+        @buy_buyer.phone = '111111111111'
+        @buy_buyer.valid?
+        expect(@buy_buyer.errors.full_messages).to include('Phone is invalid')
+      end
+      it 'phoneにハイフンがあると登録できない' do
+        @buy_buyer.phone = '111-1111-1111'
         @buy_buyer.valid?
         expect(@buy_buyer.errors.full_messages).to include('Phone is invalid')
       end
