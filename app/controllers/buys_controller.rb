@@ -1,6 +1,6 @@
 class BuysController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_item, only: [:index, :create, :move_to_top]
+  before_action :set_item, only: [:index, :create, ]
   before_action :move_to_top, only: [:index, :create]
   
 
