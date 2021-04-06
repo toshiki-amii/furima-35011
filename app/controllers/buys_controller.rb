@@ -1,11 +1,14 @@
 class BuysController < ApplicationController
+  before_action :authenticate_user!
+  before_action :set_item, only: [:index, :create, :move_to_top]
+  before_action :move_to_top, only: [:index, :create]
+  
+
   def index
-    @item = Item.find(params[:item_id])
     @buy_buyer = BuyBuyer.new
   end
 
   def create
-    @item = Item.find(params[:item_id])
     @buy_buyer = BuyBuyer.new(buyer_params)
     if @buy_buyer.valid?
       pay_item
@@ -32,4 +35,13 @@ class BuysController < ApplicationController
       currency: 'jpy'
     )
   end
+
+  def set_item
+    @item = Item.find(params[:item_id])
+  end
+
+  def move_to_top
+    redirect_to controller: :items, action: :index if @item.buy.present? || current_user.id == @item.user.id 
+  end
+
 end
