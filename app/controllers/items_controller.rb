@@ -60,3 +60,4 @@ class ItemsController < ApplicationController
     redirect_to action: :index if @item.buy.present?
   end
 end
+
